@@ -60,7 +60,7 @@ return [
     'features' => [
         // Features::termsAndPrivacyPolicy(),
         // Features::profilePhotos(),
-        // Features::api(),
+        Features::api(),
         // Features::teams(['invitations' => true]),
         Features::accountDeletion(),
     ],
@@ -78,10 +78,10 @@ return [
 
     'profile_photo_disk' => 'public',
 
-    // 'features' => [
-    //     features::profilePhotos(),
-    //     features::api(),
+    'features' => [
+        features::profilePhotos(),
+        //features::api(),
 
-    // ],
+    ],
 
 ];

@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Brand;
+use App\Models\MultiplePic;
 use Illuminate\Support\Carbon;
 use Intervention\Image\Facades\Image; // Import the Image facade
 
 class BrandController extends Controller
 {
+    public function  __construct(){
+        $this->middleware('auth');
+    }
+
+
     public function AllBrand(){
         $brands =Brand::latest()->paginate(4);
 
@@ -122,5 +128,46 @@ class BrandController extends Controller
 
     }
 
+
+//multi image Controller
+    public function ImageMulti(){
+        $images = MultiplePic ::all();
+
+        //compact alllows data to be fetched from the database.
+    
+        return view('admin.multipic.index',compact('images'));
+    }
+
+
+    public function AddImage (Request $request){
+
+        $image = $request -> file('image');
+
+        //loading of the images
+      
+        foreach($image as $multi_img){
+
+
+        // use of image intervention package
+        $name_gen = hexdec(uniqid()).'.'.$multi_img->getClientOriginalExtension();
+        Image::make($multi_img)-> resize(300,300) ->save('image/Mimages/'. $name_gen);
+        $last_img ='image/Mimages/'.$name_gen;
+
+
+
+        // insert the data to the db
+        MultiplePic :: insert([
+     
+            'image' => $last_img,
+            'created_at' => Carbon::now()
+
+        ]);
+
+    } // end of foreach loop
+
+        return Redirect()->back()->with('success', 'Your images have been inserted');
+
+    }
+    
 
 }

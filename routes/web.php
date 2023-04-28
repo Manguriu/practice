@@ -74,6 +74,8 @@ Route::get('/brand/delete/{id}', [BrandController::class, 'Delete']);
 // });
 
 Route::get('/hello', [helloController::class, 'index']) ->name('ello');
+
+// route to dashboard
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -81,7 +83,41 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         // $users = User::all();
-        $users = DB::table('users')-> get();
-        return view('dashboard', compact('users'));
+        // $users = DB::table('users')-> get();
+        return view('admin.index');
     })->name('dashboard');
 });
+
+
+// multi image route
+Route::get('/multi/image', [BrandController::class, 'ImageMulti']) ->name('images.multi');
+
+// adding multiple images  
+Route::POST('/image/add', [BrandController::class, 'AddImage']) ->name('store.image');
+
+Route::get('send-mail', function () {
+
+   
+
+    $details = [
+
+        'title' => 'Mail from ItSolutionStuff.com',
+
+        'body' => 'This is for testing email using smtp'
+
+    ];
+
+   
+
+    \Mail::to('your_receiver_email@gmail.com')->send(new \App\Mail\MyTestMail($details));
+
+   
+
+    dd("Email is Sent.");
+
+});
+
+// email verification
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');

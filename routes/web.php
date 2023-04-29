@@ -121,3 +121,6 @@ Route::get('send-mail', function () {
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
+
+
+Route::get('/user/logout', [BrandController::class, 'Logout']) ->name('user.logout');

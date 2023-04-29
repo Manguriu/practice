@@ -2,8 +2,8 @@
 @extends('admin.master')
 
 @section('admin')
-                  <!-- Top Statistics -->
-                  <div class="row">
+      <!-- Top Statistics -->
+      <div class="row">
                     <div class="col-xl-3 col-sm-6">
                       <div class="card card-mini mb-4">
                         <div class="card-body">
@@ -739,8 +739,7 @@
                       </div>
                       </div>
                   </div>
-</div>
-
+</div>          
 						
 
 @endsection 

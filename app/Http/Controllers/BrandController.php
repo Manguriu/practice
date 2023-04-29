@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Brand;
 use App\Models\MultiplePic;
+use Auth;
 use Illuminate\Support\Carbon;
 use Intervention\Image\Facades\Image; // Import the Image facade
 
@@ -167,6 +168,11 @@ class BrandController extends Controller
 
         return Redirect()->back()->with('success', 'Your images have been inserted');
 
+    }
+// creating the logout route, which is inbuilt in laravel
+    public function Logout (){
+        Auth::logout();
+        return Redirect()->route('login') -> with('success', 'user logged out');
     }
     
 

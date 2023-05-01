@@ -2,8 +2,8 @@
 @extends('admin.master')
 
 @section('admin')
-      <!-- Top Statistics -->
-      <div class="row">
+                  <!-- Top Statistics -->
+                  <div class="row">
                     <div class="col-xl-3 col-sm-6">
                       <div class="card card-mini mb-4">
                         <div class="card-body">
@@ -61,7 +61,7 @@
                         <div class="card-body">
                           <canvas id="linechart" class="chartjs"></canvas>
                         </div>
-                        <div class="card-footer d-flex flex-wrap bg-white p-0">
+                        <div class="card-footer d-flex flex-wrap bg-black p-0">
                           <div class="col-6 px-0">
                             <div class="text-center p-4">
                               <h4>$6,308</h4>
@@ -596,7 +596,7 @@
                             <td >
                               <div class="media">
                                 <div class="media-image mr-3 rounded-circle">
-                                  <a href="profile.html"><img class="rounded-circle w-45" src="assets/img/user/u1.jpg" alt="customer image"></a>
+                                  <a href="profile.html"><img class="rounded-circle w-45" src="backend/assets/img/user/u1.jpg" alt="customer image"></a>
                                 </div>
                                 <div class="media-body align-self-center">
                                   <a href="profile.html"><h6 class="mt-0 text-dark font-weight-medium">Selena Wagner</h6></a>
@@ -611,7 +611,7 @@
                             <td >
                               <div class="media">
                                 <div class="media-image mr-3 rounded-circle">
-                                  <a href="profile.html"><img class="rounded-circle w-45" src="assets/img/user/u2.jpg" alt="customer image"></a>
+                                  <a href="profile.html"><img class="rounded-circle w-45" src="backend/assets/img/user/u2.jpg" alt="customer image"></a>
                                 </div>
                                 <div class="media-body align-self-center">
                                   <a href="profile.html"><h6 class="mt-0 text-dark font-weight-medium">Walter Reuter</h6></a>
@@ -626,7 +626,7 @@
                             <td >
                               <div class="media">
                                 <div class="media-image mr-3 rounded-circle">
-                                  <a href="profile.html"><img class="rounded-circle w-45" src="assets/img/user/u3.jpg" alt="customer image"></a>
+                                  <a href="profile.html"><img class="rounded-circle w-45" src="backend/assets/img/user/u3.jpg" alt="customer image"></a>
                                 </div>
                                 <div class="media-body align-self-center">
                                   <a href="profile.html"><h6 class="mt-0 text-dark font-weight-medium">Larissa Gebhardt</h6></a>
@@ -641,7 +641,7 @@
                             <td >
                               <div class="media">
                                 <div class="media-image mr-3 rounded-circle">
-                                  <a href="profile.html"><img class="rounded-circle w-45" src="assets/img/user/u4.jpg" alt="customer image"></a>
+                                  <a href="profile.html"><img class="rounded-circle w-45" src="backend/assets/img/user/u4.jpg" alt="customer image"></a>
                                 </div>
                                 <div class="media-body align-self-center">
                                   <a href="profile.html"><h6 class="mt-0 text-dark font-weight-medium">Albrecht Straub</h6></a>
@@ -656,7 +656,7 @@
                             <td >
                               <div class="media">
                                 <div class="media-image mr-3 rounded-circle">
-                                  <a href="profile.html"><img class="rounded-circle w-45" src="assets/img/user/u5.jpg" alt="customer image"></a>
+                                  <a href="profile.html"><img class="rounded-circle w-45" src="backend/assets/img/user/u5.jpg" alt="customer image"></a>
                                 </div>
                                 <div class="media-body align-self-center">
                                   <a href="profile.html"><h6 class="mt-0 text-dark font-weight-medium">Leopold Ebert</h6></a>
@@ -695,7 +695,7 @@
                     <div class="card-body py-0">
                       <div class="media d-flex mb-5">
                         <div class="media-image align-self-center mr-3 rounded">
-                          <a href="#"><img src="assets/img/products/p1.jpg" alt="customer image"></a>
+                          <a href="#"><img src="backend/assets/img/products/p1.jpg" alt="customer image"></a>
                         </div>
                         <div class="media-body align-self-center">
                           <a href="#"><h6 class="mb-3 text-dark font-weight-medium"> Coach Swagger</h6></a>
@@ -710,7 +710,7 @@
 
                       <div class="media d-flex mb-5">
                         <div class="media-image align-self-center mr-3 rounded">
-                          <a href="#"><img src="assets/img/products/p2.jpg" alt="customer image"></a>
+                          <a href="#"><img src="backend/assets/img/products/p2.jpg" alt="customer image"></a>
                         </div>
                         <div class="media-body align-self-center">
                           <a href="#"><h6 class="mb-3 text-dark font-weight-medium"> Coach Swagger</h6></a>
@@ -725,7 +725,7 @@
 
                       <div class="media d-flex mb-5">
                         <div class="media-image align-self-center mr-3 rounded">
-                          <a href="#"><img src="assets/img/products/p3.jpg" alt="customer image"></a>
+                          <a href="#"><img src="backend/assets/img/products/p3.jpg" alt="customer image"></a>
                         </div>
                         <div class="media-body align-self-center">
                           <a href="#"><h6 class="mb-3 text-dark font-weight-medium"> Gucci Watch</h6></a>
@@ -739,7 +739,8 @@
                       </div>
                       </div>
                   </div>
-</div>          
+</div>
+
 						
 
 @endsection 

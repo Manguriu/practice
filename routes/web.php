@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\helloController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BrandController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,8 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $brands = DB::table('brands')->get();
+    return view('home', compact('brands'));
 });
 
 Route::get('/about', function () {
@@ -124,3 +126,11 @@ Route::get('/email/verify', function () {
 
 
 Route::get('/user/logout', [BrandController::class, 'Logout']) ->name('user.logout');
+
+//admin home slider all route
+Route::get('/home/slider', [HomeController::class, 'HomeSlider']) ->name('home.slider');
+Route::get('/slider/add', [HomeController::class, 'AddSlider']) ->name('slider.add');
+Route::POST('/slider/add', [HomeController::class, 'SliderAdd']) ->name('store.slider');
+
+
+

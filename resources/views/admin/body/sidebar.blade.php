@@ -12,12 +12,7 @@
                   viewBox="0 0 30 33"
                 >
                   <g fill="none" fill-rule="evenodd">
-                    <!-- <path
-                      class="logo-fill-blue"
-                      fill="#7DBCFF"
-                      d="M0 4v25l8 4V0zM22 4v25l8 4V0z"
-                    />
-                    <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" /> -->
+     
                   </g>
                 </svg>
                 <span class="brand-name">Dashboard</span>
@@ -44,7 +39,7 @@
                         
                           
                             <li  class="active" >
-                              <a class="sidenav-item-link" href="index.html">
+                              <a class="sidenav-item-link" href="{{route('home.slider')}}">
                                 <span class="nav-text">Slider Menu</span>
                                 
                               </a>

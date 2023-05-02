@@ -45,4 +45,76 @@ class HomeController extends Controller
         return Redirect()->route('home.slider')->with('success', 'Your slider has been added');
     }
 
+    public function Edit($id){
+        $sliders = slider::find($id);
+        return view('admin.slider.edit', compact('sliders'));
+
+    }
+
+    //delete <slider data
+
+    public function Delete($id){
+
+        // image delete in the db
+        $image = slider :: find($id);
+        $old_image =$image -> image;
+        unlink($old_image);
+
+        //delete the brand
+        slider::find($id) ->delete();
+        return Redirect()->back()->with('success', 'Slider deleted Deleted');
+
+
+    }
+
+
+    public function Update(Request $request, $id){
+
+        //remove the existing image
+        $old_image = $request -> old_image;
+     
+
+        $image = $request -> file('image');
+
+        //update name without image
+        if($image){
+        $name_gen = hexdec(uniqid());
+        $img_ext = strtolower($image ->getClientOriginalExtension());
+        $img_name = $name_gen.'.'.$img_ext;
+
+        //upload
+        $up_location = 'image/slider/';
+        $last_img = $up_location.$img_name;
+        $image ->move($up_location,$img_name);
+
+
+        //removing the old image
+        unlink($old_image);
+
+
+        // insert the data to the db
+        slider :: find($id)->update ([
+            'title' => $request->title,
+            'description'=>$request->description,
+            'image' => $last_img,
+            'created_at' => Carbon::now()
+
+        ]);
+
+        return Redirect()->back()->with('success', 'Slider updated');
+    }else {
+        slider :: find($id)->update ([
+            'title' => $request->title,
+            'description' => $request->description,
+            'created_at' => Carbon::now()
+ 
+        ]);
+
+        return Redirect()->back()->with('success', 'Slider updated');
+
+    }
+
+}
+
+
 }

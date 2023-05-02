@@ -70,7 +70,7 @@ class BrandController extends Controller
         ]); 
 
         //remove the existing image
-        $old_image = $request -> brand_image;
+        $old_image = $request -> old_image;
      
 
         $brand_image = $request -> file('brand_image');
@@ -87,6 +87,7 @@ class BrandController extends Controller
 
 
         //removing the old image
+        
         unlink($old_image);
 
 

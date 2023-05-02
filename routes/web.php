@@ -129,8 +129,16 @@ Route::get('/user/logout', [BrandController::class, 'Logout']) ->name('user.logo
 
 //admin home slider all route
 Route::get('/home/slider', [HomeController::class, 'HomeSlider']) ->name('home.slider');
+//to slider add page
 Route::get('/slider/add', [HomeController::class, 'AddSlider']) ->name('slider.add');
+//create slider data and store to the DB
 Route::POST('/slider/add', [HomeController::class, 'SliderAdd']) ->name('store.slider');
+//slider edit
+Route::get('/slider/edit/{id}', [HomeController::class, 'Edit']);
+//slider update
+Route::POST('/slider/update/{id}', [HomeController::class, 'Update']);
+//slider delete
+Route::get('/slider/delete/{id}', [HomeController::class, 'Delete']);
 
 
 

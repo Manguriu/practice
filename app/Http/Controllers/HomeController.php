@@ -101,7 +101,7 @@ class HomeController extends Controller
 
         ]);
 
-        return Redirect()->back()->with('success', 'Slider updated');
+        return Redirect()->route('home.slider')->with('success', 'Slider updated');
     }else {
         slider :: find($id)->update ([
             'title' => $request->title,
@@ -110,7 +110,7 @@ class HomeController extends Controller
  
         ]);
 
-        return Redirect()->back()->with('success', 'Slider updated');
+        return Redirect()->route('home.slider')->with('success', 'Slider updated');
 
     }
 

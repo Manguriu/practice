@@ -5,7 +5,9 @@ use App\Http\Controllers\helloController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\AboutController;
 use App\Models\User;
+use App\Models\MultiplePic;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -20,8 +22,15 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
+    //data fetching for display to homepage/frontend
+    //querry Builder
     $brands = DB::table('brands')->get();
-    return view('home', compact('brands'));
+    $abouts = DB::table('home_abouts')->first();
+    $multipic = DB::table('multiple_pics')->get();
+
+    //eloquent orm
+    // $images = MultiplePic::all();
+    return view('home', compact('brands','abouts', 'multipic'));
 });
 
 Route::get('/about', function () {
@@ -139,6 +148,27 @@ Route::get('/slider/edit/{id}', [HomeController::class, 'Edit']);
 Route::POST('/slider/update/{id}', [HomeController::class, 'Update']);
 //slider delete
 Route::get('/slider/delete/{id}', [HomeController::class, 'Delete']);
+
+
+
+// Home About
+Route::get('/home/about', [AboutController::class, 'About']) ->name('home.about');
+//add about info
+Route::get('/about/add', [AboutController::class, 'AddAbout']) ->name('about.add');
+//to store the about data
+Route::POST('/about/store', [AboutController::class, 'AboutStore']) ->name('about.store');
+//edit about info
+Route::get('/about/edit/{id}', [AboutController::class, 'Edit']);
+//update about info
+Route::POST('/about/update/{id}', [AboutController::class, 'Update']);
+//delete about info
+Route::get('/about/delete/{id}', [AboutController::class, 'Delete']);
+
+
+//portfolio page route
+Route::get('/portfolio/page', [AboutController::class, 'PortF']) ->name('portfolio');
+
+
 
 
 

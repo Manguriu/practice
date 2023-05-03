@@ -29,7 +29,7 @@
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up">
-        @foreach($multipic  as $img)
+        {{-- @foreach($multipic  as $img)
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <img src="{{$img -> image}}" class="img-fluid" alt="">
             <div class="portfolio-info">
@@ -41,7 +41,9 @@
           </div>
 
       @endforeach
-          
+           --}}
+
+           @include('pages.loop')
 
         </div>
 

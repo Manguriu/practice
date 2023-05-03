@@ -6,6 +6,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PasswordController;
 use App\Models\User;
 use App\Models\MultiplePic;
 use Illuminate\Support\Facades\DB;
@@ -28,18 +30,11 @@ Route::get('/', function () {
     $abouts = DB::table('home_abouts')->first();
     $multipic = DB::table('multiple_pics')->get();
 
-    //eloquent orm
-    // $images = MultiplePic::all();
+
     return view('home', compact('brands','abouts', 'multipic'));
 });
 
-Route::get('/about', function () {
-    return view('about');
-});
 
-Route::get('/contact', function () {
-    return view('contact');
-});
 
 //category controller
 Route::get('/category/all', [CategoryController::class, 'AllCat']) ->name('all.category');
@@ -166,9 +161,28 @@ Route::get('/about/delete/{id}', [AboutController::class, 'Delete']);
 
 
 //portfolio page route
-Route::get('/portfolio/page', [AboutController::class, 'PortF']) ->name('portfolio');
+Route::get('/portfolio', [AboutController::class, 'PortF']) ->name('portfolio');
+
+// admin conatct page
+Route::get('/conatact/profile', [ContactController::class, 'ContactP']) ->name('contact.profile');
+//add contact
+Route::get('/contact/add', [ContactController::class, 'AddContact']) ->name('add.Contact');
+//store add
+Route::POST('/contact/store', [ContactController::class, 'ContactStore']) ->name('contact.add');
+// contact route frontend route page
+Route::get('/contact', [ContactController::class, 'ContactH']) ->name('contact');
+//contact form submit
+Route::POST('/contact/form', [ContactController::class, 'ContactForm']) ->name('contact.form');
+
+// route to contact message
+Route::get('/contact/message', [ContactController::class, 'ContactMessage']) ->name('contact.message');
+
+// delete message
+Route::get('/message/delete/{id}', [ContactController::class, 'Delete']);
 
 
+//change password and user profile
+Route::get('/change/password', [PasswordController::class, 'ChangePassword']) ->name('change.password');
 
 
 

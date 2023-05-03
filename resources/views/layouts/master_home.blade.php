@@ -62,10 +62,10 @@
   <script src="{{asset('frontend/assets/vendor/venobox/venobox.min.js')}}"></script>
   <script src="{{asset('frontend/assets/vendor/waypoints/jquery.waypoints.min.js')}}"></script>
   <script src="{{asset('frontend/assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
-  <script src="{{asset('frontend/assets/vendor/aos/aos.js'"></script>
+  <script src="{{asset('frontend/assets/vendor/aos/aos.js')}}"></script>
 
   <!-- Template Main JS File -->
-  <script src="frontend/assets/js/main.js"></script>
+  <script src="{{asset('frontend/assets/js/main.js')}}"></script>
 
 </body>
 

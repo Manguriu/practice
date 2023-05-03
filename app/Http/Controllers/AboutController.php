@@ -68,6 +68,8 @@ class AboutController extends Controller
     }
 
     public function PortF(){
+        
+        $multipic = MultiplePic::all();
         $multipic = DB::table('multiple_pics')->get();
         return view ('pages.portfolio', compact('multipic'));
     }

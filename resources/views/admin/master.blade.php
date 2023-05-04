@@ -21,6 +21,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/Ladda/1.0.6/ladda.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="{{asset('backend/assets/plugins/daterangepicker/daterangepicker.css')}}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="{{asset('backend/assets/css/sleek.css')}}" />
@@ -141,7 +142,7 @@
                       </li>
 
                       <li>
-                        <a href="profile.html">
+                        <a href="{{route('change.profile')}}">
                           <i class="mdi mdi-account"></i> My Profile
                         </a>
                       </li>
@@ -220,7 +221,30 @@
 <script src="{{asset('backend/assets/js/date-range.js')}}"></script>
 <script src="{{asset('backend/assets/js/map.js')}}"></script>
 <script src="{{asset('backend/assets/js/custom.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+<script>
+@if(Session::has('message'))
+var type ="{{Session::get('alert-type','info')}}"
+switch(type){
+  case 'info':
+    toastr.info("{{Session::get('message')}}");
+    break;
+
+    case 'success':
+    toastr.success("{{Session::get('message')}}");
+    break;
+
+    case 'warning':
+    toastr.warning("{{Session::get('message')}}");
+    break;
+
+    case 'error':
+    toastr.error("{{Session::get('message')}}");
+    break;
+}
+@endif
+</script>
 
 
 

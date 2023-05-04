@@ -54,7 +54,15 @@ class BrandController extends Controller
 
         ]);
 
-        return Redirect()->back()->with('success', 'Your brand has been added');
+
+        //adding toaster
+
+        $notification =array(
+            'message' => 'Your brand has been added',
+            'alert-type' => 'success',
+        );
+
+        return Redirect()->back()->with($notification);
     }
 
     public function Edit($id){
@@ -98,8 +106,12 @@ class BrandController extends Controller
             'created_at' => Carbon::now()
 
         ]);
+        $notification =array(
+            'message' => 'Your brand Photo has been updatd',
+            'alert-type' => 'info',
+        );
 
-        return Redirect()->back()->with('success', 'Your brand has been updated');
+        return Redirect()->back()->with($notification);
 
         }else{
             Brand :: find($id)->update ([
@@ -107,8 +119,13 @@ class BrandController extends Controller
                 'created_at' => Carbon::now()
      
             ]);
+
+            $notification =array(
+                'message' => 'Your brand Name has been updated',
+                'alert-type' => 'warning',
+            );
     
-            return Redirect()->back()->with('success', 'Your brand has been updated');
+            return Redirect()->back()->with($notification);
 
         }
 
@@ -125,7 +142,12 @@ class BrandController extends Controller
 
         //delete the brand
         Brand::find($id) ->delete();
-        return Redirect()->back()->with('success', 'Your brand has been Deleted');
+        
+        $notification =array(
+            'message' => 'Your brand Name has been updated',
+            'alert-type' => 'error',
+        );
+        return Redirect()->back()->with($notification);
 
 
     }

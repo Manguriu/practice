@@ -6,10 +6,18 @@ use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Carbon;
 use App\Models\slider;
+use App\Models\User;
 use Intervention\Image\Facades\Image;
 
 class HomeController extends Controller
 {
+    public function Users(){
+        $users = slider::latest()->get();
+        return view('admin.index', compact('users'));
+
+    }
+
+
     public function HomeSlider() {
         $sliders = slider::latest()->get();
         return view ('admin.slider.index', compact('sliders'));
@@ -114,6 +122,7 @@ class HomeController extends Controller
 
     }
 
+ 
 }
 
 

@@ -74,11 +74,6 @@ Route::POST('/brand/update/{id}', [BrandController::class, 'Update']);
 Route::get('/brand/delete/{id}', [BrandController::class, 'Delete']);
 
 
-
-// Route::get('/hello', function () {
-//     return view('hello');
-// });
-
 Route::get('/hello', [helloController::class, 'index']) ->name('ello');
 
 // route to dashboard
@@ -88,9 +83,9 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        // $users = User::all();
-        // $users = DB::table('users')-> get();
-        return view('admin.index');
+        $users = User::all();
+        $users = DB::table('users')-> get();
+        return view('admin.index', compact('users'));
     })->name('dashboard');
 });
 
@@ -102,25 +97,12 @@ Route::get('/multi/image', [BrandController::class, 'ImageMulti']) ->name('image
 Route::POST('/image/add', [BrandController::class, 'AddImage']) ->name('store.image');
 
 Route::get('send-mail', function () {
-
-   
-
     $details = [
-
         'title' => 'Mail from ItSolutionStuff.com',
-
         'body' => 'This is for testing email using smtp'
-
     ];
-
-   
-
     \Mail::to('your_receiver_email@gmail.com')->send(new \App\Mail\MyTestMail($details));
-
-   
-
     dd("Email is Sent.");
-
 });
 
 // email verification
@@ -143,6 +125,13 @@ Route::get('/slider/edit/{id}', [HomeController::class, 'Edit']);
 Route::POST('/slider/update/{id}', [HomeController::class, 'Update']);
 //slider delete
 Route::get('/slider/delete/{id}', [HomeController::class, 'Delete']);
+
+
+
+
+Route::get('/users/show', [HomeController::class, 'Users']) ->name('users.show');
+
+
 
 
 

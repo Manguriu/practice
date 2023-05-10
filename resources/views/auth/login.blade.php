@@ -66,13 +66,6 @@
                   </div>
                   <div class="col-md-12">
                     <div class="d-flex my-2 justify-content-between">
-                      <div class="d-inline-block mr-3">
-                        <label class="control control-checkbox">Remember me
-                          <input type="checkbox" />
-                          <div class="control-indicator"></div>
-                        </label>
-                
-                      </div>
                       <p><a class="text-blue" href="{{ route('password.request') }}">Forgot Your Password?</a></p>
                     </div>
                     <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Sign In</button>
